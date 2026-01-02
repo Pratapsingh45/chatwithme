@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Chat with Rudra Pratap Singh</title>
     <style>
         :root {
@@ -16,8 +16,6 @@
             --text-secondary: #8696a0;
             --border: #2a3942;
             --online: #25d366;
-            --header-height: 60px;
-            --input-height: 60px;
         }
 
         .light {
@@ -29,13 +27,12 @@
             --text: #111;
             --text-secondary: #667781;
             --border: #d1d7db;
-            --online: #25d366;
         }
 
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         html,
@@ -43,22 +40,21 @@
             height: 100%;
             width: 100%;
             overflow: hidden;
-            position: fixed;
+            position: fixed
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: var(--bg-primary);
-            color: var(--text);
+            color: var(--text)
         }
 
         .container {
             display: flex;
             flex-direction: column;
             height: 100vh;
-            height: 100dvh;
             width: 100%;
-            background: var(--bg-chat);
+            background: var(--bg-chat)
         }
 
         .header {
@@ -67,14 +63,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            height: var(--header-height);
-            flex-shrink: 0;
+            height: 60px;
+            flex-shrink: 0
         }
 
         .profile {
             position: relative;
             width: 40px;
-            height: 40px;
+            height: 40px
         }
 
         .avatar {
@@ -82,7 +78,7 @@
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--online);
+            border: 2px solid var(--online)
         }
 
         .online-dot {
@@ -94,7 +90,7 @@
             background: var(--online);
             border: 2px solid var(--bg-secondary);
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            animation: pulse 2s infinite
         }
 
         @keyframes pulse {
@@ -110,46 +106,45 @@
         }
 
         .info {
-            flex: 1;
+            flex: 1
         }
 
         .name {
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 500
         }
 
         .status {
             font-size: 13px;
-            color: var(--text-secondary);
+            color: var(--text-secondary)
         }
 
         .theme-toggle {
             background: transparent;
             border: none;
             padding: 8px;
-            cursor: pointer;
+            cursor: pointer
         }
 
         .theme-toggle svg {
             width: 24px;
             height: 24px;
-            fill: var(--text-secondary);
+            fill: var(--text-secondary)
         }
 
         #messages {
-            height: calc(100vh - var(--header-height) - var(--input-height));
-            height: calc(100dvh - var(--header-height) - var(--input-height));
+            height: calc(100vh - 120px);
             overflow-y: auto;
             overflow-x: hidden;
             padding: 20px;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch
         }
 
         .msg {
             display: flex;
             gap: 8px;
             margin: 8px 0;
-            animation: slideUp 0.3s;
+            animation: slideUp 0.3s
         }
 
         @keyframes slideUp {
@@ -165,7 +160,7 @@
         }
 
         .msg.out {
-            flex-direction: row-reverse;
+            flex-direction: row-reverse
         }
 
         .bubble {
@@ -173,21 +168,21 @@
             padding: 8px 12px;
             border-radius: 8px;
             word-wrap: break-word;
-            background: var(--msg-in);
+            background: var(--msg-in)
         }
 
         .msg.out .bubble {
-            background: var(--msg-out);
+            background: var(--msg-out)
         }
 
         .time {
             font-size: 11px;
             color: var(--text-secondary);
-            margin-top: 4px;
+            margin-top: 4px
         }
 
         .typing {
-            padding: 12px 16px;
+            padding: 12px 16px
         }
 
         .typing span {
@@ -197,7 +192,7 @@
             background: var(--text-secondary);
             border-radius: 50%;
             margin: 0 2px;
-            animation: bounce 1.4s infinite;
+            animation: bounce 1.4s infinite
         }
 
         .typing span:nth-child(2) {
@@ -227,9 +222,9 @@
             display: flex;
             gap: 8px;
             align-items: center;
-            height: var(--input-height);
+            height: 60px;
             flex-shrink: 0;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid var(--border)
         }
 
         input {
@@ -240,11 +235,11 @@
             padding: 10px 16px;
             color: var(--text);
             font-size: 15px;
-            outline: none;
+            outline: none
         }
 
         input::placeholder {
-            color: var(--text-secondary);
+            color: var(--text-secondary)
         }
 
         button {
@@ -256,198 +251,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
+            flex-shrink: 0
         }
 
         button svg {
             width: 20px;
             height: 20px;
-            fill: #fff;
+            fill: #fff
         }
 
         @media(min-width:768px) {
             .container {
                 max-width: 900px;
-                margin: 0 auto;
-            }
-        }
-
-        --bg-primary: #111b21;
-        --bg-secondary: #202c33;
-        --bg-chat: #0b141a;
-        --msg-out: #005c4b;
-        --msg-in: #202c33;
-        --text: #e9edef;
-        --text-secondary: #8696a0;
-        --border: #2a3942;
-        --online: #25d366;
-        }
-
-        .light {
-            --bg-primary: #f0f2f5;
-            --bg-secondary: #fff;
-            --bg-chat: #efeae2;
-            --msg-out: #d9fdd3;
-            --msg-in: #fff;
-            --text: #111;
-            --text-secondary: #667781;
-            --border: #d1d7db;
-            --online: #25d366;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
-
-        html {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text);
-            transition: all 0.3s;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            width: 100%;
-            background: var(--bg-chat);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .header {
-            background: var(--bg-secondary);
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
-            min-height: 60px;
-        }
-
-        .avatar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff
-        }
-
-        .name {
-            color: var(--text)
-        }
-
-        .theme-toggle {
-            border-radius: 50%;
-            transition: background 0.2s
-        }
-
-        .theme-toggle:hover {
-            background: var(--border)
-        }
-
-        #messages {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="10" y="50" font-size="80" opacity="0.05" fill="%23999">💬</text></svg>') center/400px;
-            min-height: 0;
-        }
-
-        .msg {
-            align-items: flex-end;
-            flex-shrink: 0;
-        }
-
-        .bubble {
-            max-width: 65%;
-            padding: 6px 10px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
-        }
-
-        .msg.in .bubble {
-            background: var(--msg-in);
-            border-top-left-radius: 0
-        }
-
-        .msg.out .bubble {
-            background: var(--msg-out);
-            border-top-right-radius: 0;
-            color: var(--text)
-        }
-
-        .time {
-            text-align: right
-        }
-
-        .typing {
-            display: inline-flex;
-            gap: 4px;
-        }
-
-        .input-area {
-            padding: 8px 16px;
-            min-height: 60px;
-        }
-
-        button {
-            cursor: pointer;
-            transition: transform 0.2s
-        }
-
-        button:hover {
-            transform: scale(1.05)
-        }
-
-        button:active {
-            transform: scale(0.95)
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 3px
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-secondary)
-        }
-
-        @media(min-width:768px) {
-            .container {
-                border-left: 1px solid var(--border);
-                border-right: 1px solid var(--border)
+                margin: 0 auto
             }
         }
     </style>
@@ -477,18 +293,11 @@
             <button onclick="send()">
                 <svg viewBox="0 0 24 24">
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                </svg>
             </button>
         </div>
     </div>
     <script>
-        // Fix mobile viewport height
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        window.addEventListener('resize', () => {
-            vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        });
-
         const m = document.getElementById('messages'), i = document.getElementById('input');
         let theme = 'dark';
         const API_KEY = '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';
